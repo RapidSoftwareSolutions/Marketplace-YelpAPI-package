@@ -1,0 +1,264 @@
+{ 
+    "package": "YelpAPI",
+    "tagline": "Yelp API Wrapper",
+    "description": "Yelp's Fusion API allows you to get the best local business information and user reviews of over million businesses in 32 countries.",
+    "image": "http://logo.clearbit.com/yelp.com",
+    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-YelpAPI-package",
+    "accounts": {
+        "domain": "yelp.com",
+        "credentials": [
+            "appId",
+            "appSercet"
+        ]
+    },
+    "blocks": [{
+        "name":"getAccessToken",
+        "description": "Allows to get an access token.",
+        "args":[
+            {
+                "name": "appId",
+                "type": "credentials",
+                "info": "Required: Your App ID obtained from Yelp."
+            }, {
+                "name": "appSercet",
+                "type": "credentials",
+                "info": "Required: Your App Secret obtained from Yelp."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getBusinesses",
+        "description": "This endpoint returns up to 1000 businesses based on the provided search criteria. It has some basic information about the business.",
+        "args":[
+            {
+                "name": "accessToken",
+                "type": "String",
+                "info": "Required: Access Token obtained from getAccessToken endpoint."
+            }, {
+                "name": "term",
+                "type": "String",
+                "info": "Optional: Search term (e.g. \"food\", \"restaurants\"). If term isn’t included we search everything. The term keyword also accepts business names such as \"Starbucks\"."
+            }, {
+                "name": "location",
+                "type": "String",
+                "info": "Optional: Required if either latitude or longitude is not provided. Specifies the combination of \"address, neighborhood, city, state or zip, optional country\" to be used when searching for businesses."
+            }, {
+                "name": "latitude",
+                "type": "String",
+                "info": "Optional: Required if location is not provided. Latitude of the location you want to search near by."
+            }, {
+                "name": "longitude",
+                "type": "String",
+                "info": "Optional: Required if location is not provided. Latitude of the location you want to search near by."
+            }, {
+                "name": "radius",
+                "type": "String",
+                "info": "Optional: Search radius in meters. If the value is too large, a AREA_TOO_LARGE error may be returned. The max value is 40000 meters (25 miles)."
+            }, {
+                "name": "categories",
+                "type": "String",
+                "info": "Optional: Categories to filter the search results with. See the list of supported categories. The category filter can be a list of comma delimited categories. For example, \"bars,french\" will filter by Bars and French. The category identifier should be used (for example \"discgolf\", not \"Disc Golf\")."
+            }, {
+                "name": "locale",
+                "type": "String",
+                "info": "Optional: Specify the locale to return the business information in."
+            }, {
+                "name": "limit",
+                "type": "String",
+                "info": "Optional: Number of business results to return. By default, it will return 20. Maximum is 50."
+            }, {
+                "name": "offset",
+                "type": "String",
+                "info": "Optional: Offset the list of returned business results by this amount."
+            }, {
+                "name": "sortBy",
+                "type": "String",
+                "info": "Optional: Sort the results by one of the these modes: best_match, rating, review_count or distance. By default it's best_match. The rating sort is not strictly sorted by the rating value, but by an adjusted rating value that takes into account the number of ratings, similar to a bayesian average. This is so a business with 1 rating of 5 stars doesn’t immediately jump to the top."
+            }, {
+                "name": "price",
+                "type": "String",
+                "info": "Optional: Pricing levels to filter the search result with: 1 = $, 2 = $$, 3 = $$$, 4 = $$$$. The price filter can be a list of comma delimited pricing levels. For example, \"1, 2, 3\" will filter the results to show the ones that are $, $$, or $$$."
+            }, {
+                "name": "openNow",
+                "type": "String",
+                "info": "Optional: Default to false. When set to true, only return the businesses open now. Notice that open_at and open_now cannot be used together."
+            }, {
+                "name": "openAt",
+                "type": "String",
+                "info": "Optional: An integer represending the Unix time in the same timezone of the search location. If specified, it will return business open at the given time. Notice that open_at and open_now cannot be used together."
+            }, {
+                "name": "attributes",
+                "type": "String",
+                "info": "Optional: Additional filters to search businesses. You can use multiple attribute filters at the same time by providing a comma separated string, like this \"attribute1,attribute2\". Currently, the valid values are hot_and_new and deals."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getSingleBusiness",
+        "description": "This endpoint returns the detail information of a business.",
+        "args":[
+            {
+                "name": "accessToken",
+                "type": "String",
+                "info": "Required: Access Token obtained from getAccessToken endpoint."
+            }, {
+                "name": "bussinessId",
+                "type": "String",
+                "info": "Required: The business ID."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getBusinessesByPhoneNumber",
+        "description": "This endpoint returns a list of businesses based on the provided phone number. It is possible for more than one businesses having the same phone number (for example, chain stores with the same +1 800 phone number).",
+        "args":[
+            {
+                "name": "accessToken",
+                "type": "String",
+                "info": "Required: Access Token obtained from getAccessToken endpoint."
+            }, {
+                "name": "phone",
+                "type": "String",
+                "info": "Required: Phone number of the business you want to search for. It must start with + and include the country code, like +14159083801."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getBusinessesByTransaction",
+        "description": "This endpoint returns a list of businesses which support certain transactions.",
+        "args":[
+            {
+                "name": "accessToken",
+                "type": "String",
+                "info": "Required: Access Token obtained from getAccessToken endpoint."
+            }, {
+                "name": "transactionType",
+                "type": "String",
+                "info": "Required: Valid values for transaction_type are: delivery."
+            }, {
+                "name": "location",
+                "type": "String",
+                "info": "Optional: Required when latitude and longitude aren't provided. Address of the location you want to deliver to."
+            }, {
+                "name": "latitude",
+                "type": "String",
+                "info": "Optional: Required when location isn't provided. Latitude of the location you want to deliver to."
+            }, {
+                "name": "longitude",
+                "type": "String",
+                "info": "Optional: Required when location isn't provided. Longitude of the location you want to deliver to."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getBusinessReviews",
+        "description": "This endpoint returns the up to three reviews of a business.",
+        "args":[
+            {
+                "name": "accessToken",
+                "type": "String",
+                "info": "Required: Access Token obtained from getAccessToken endpoint."
+            }, {
+                "name": "bussinessId",
+                "type": "String",
+                "info": "Required: The business ID."
+            }, {
+                "name": "locale",
+                "type": "String",
+                "info": "Optional: Specify the interface locale; this determines the language of reviews to return."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getAutocomplete",
+        "description": "This endpoint returns autocomplete suggestions for search keywords, businesses and categories, based on the input text.",
+        "args":[
+            {
+                "name": "accessToken",
+                "type": "String",
+                "info": "Required: Access Token obtained from getAccessToken endpoint."
+            }, {
+                "name": "text",
+                "type": "String",
+                "info": "Required: Text to return autocomplete suggestions for."
+            }, {
+                "name": "latitude",
+                "type": "String",
+                "info": "Required: Required if want to get autocomplete suggestions for businesses. Latitude of the location to look for business autocomplete suggestions."
+            }, {
+                "name": "longitude",
+                "type": "String",
+                "info": "Required: Required if want to get autocomplete suggestions for businesses. Longitude of the location to look for business autocomplete suggestions."
+            }, {
+                "name": "locale",
+                "type": "String",
+                "info": "Optional: Specify the locale to return the autocomplete suggestions in."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }
+    ]
+}
