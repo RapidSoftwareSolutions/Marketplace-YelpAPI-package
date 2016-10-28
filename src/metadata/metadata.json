@@ -20,7 +20,7 @@
                 "type": "credentials",
                 "info": "Required: Your App ID obtained from Yelp."
             }, {
-                "name": "Secret",
+                "name": "appSecret",
                 "type": "credentials",
                 "info": "Required: Your App Secret obtained from Yelp."
             }
