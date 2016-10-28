@@ -1,7 +1,7 @@
 # YelpAPI Package
 Yelp's Fusion API allows you to get the best local business information and user reviews of over million businesses in 32 countries.
 * Domain: yelp.com
-* Credentials: appId, appSercet
+* Credentials: appId, appSecret
 
 ## How to get credentials: 
 0. Sign up or Log in to [Yelp](https://www.yelp.com) 
@@ -25,7 +25,7 @@ Allows to get an access token.
 | Field    | Type       | Description
 |----------|------------|----------
 | appId    | credentials| Required: Your App ID obtained from Yelp.
-| appSercet| credentials| Required: Your App Secret obtained from Yelp.
+| appSecret| credentials| Required: Your App Secret obtained from Yelp.
 
 <a name="getBusinesses"/>
 ## YelpAPI.getBusinesses
