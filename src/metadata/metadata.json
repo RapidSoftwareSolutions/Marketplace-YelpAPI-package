@@ -8,7 +8,7 @@
         "domain": "yelp.com",
         "credentials": [
             "appId",
-            "appSercet"
+            "appSecret"
         ]
     },
     "blocks": [{
@@ -20,7 +20,7 @@
                 "type": "credentials",
                 "info": "Required: Your App ID obtained from Yelp."
             }, {
-                "name": "appSercet",
+                "name": "Secret",
                 "type": "credentials",
                 "info": "Required: Your App Secret obtained from Yelp."
             }
