@@ -9,16 +9,6 @@ Yelp's Fusion API allows you to get the best local business information and user
 2. In the create new app form, enter information about your app accordingly, then agree to Yelp API Terms of Use and Display Requirements. Then click the Submit button.
 3. Now you can get the App ID and App Secret.
 
-## TOC: 
-* [getAccessToken](#getAccessToken)
-* [getBusinesses](#getBusinesses)
-* [getSingleBusiness](#getSingleBusiness)
-* [getBusinessesByPhoneNumber](#getBusinessesByPhoneNumber)
-* [getBusinessesByTransaction](#getBusinessesByTransaction)
-* [getBusinessReviews](#getBusinessReviews)
-* [getAutocomplete](#getAutocomplete)
- 
-<a name="getAccessToken"/>
 ## YelpAPI.getAccessToken
 Allows to get an access token.
 
@@ -27,7 +17,6 @@ Allows to get an access token.
 | appId    | credentials| Required: Your App ID obtained from Yelp.
 | appSecret| credentials| Required: Your App Secret obtained from Yelp.
 
-<a name="getBusinesses"/>
 ## YelpAPI.getBusinesses
 This endpoint returns up to 1000 businesses based on the provided search criteria. It has some basic information about the business.
 
@@ -49,7 +38,6 @@ This endpoint returns up to 1000 businesses based on the provided search criteri
 | openAt     | String| Optional: An integer represending the Unix time in the same timezone of the search location. If specified, it will return business open at the given time. Notice that open_at and open_now cannot be used together.
 | attributes | String| Optional: Additional filters to search businesses. You can use multiple attribute filters at the same time by providing a comma separated string, like this "attribute1,attribute2". Currently, the valid values are hot_and_new and deals.
 
-<a name="getSingleBusiness"/>
 ## YelpAPI.getSingleBusiness
 This endpoint returns the detail information of a business.
 
@@ -58,7 +46,6 @@ This endpoint returns the detail information of a business.
 | accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
 | bussinessId| String| Required: The business ID.
 
-<a name="getBusinessesByPhoneNumber"/>
 ## YelpAPI.getBusinessesByPhoneNumber
 This endpoint returns a list of businesses based on the provided phone number. It is possible for more than one businesses having the same phone number (for example, chain stores with the same +1 800 phone number).
 
@@ -67,7 +54,6 @@ This endpoint returns a list of businesses based on the provided phone number. I
 | accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
 | phone      | String| Required: Phone number of the business you want to search for. It must start with + and include the country code, like +14159083801.
 
-<a name="getBusinessesByTransaction"/>
 ## YelpAPI.getBusinessesByTransaction
 This endpoint returns a list of businesses which support certain transactions.
 
@@ -79,7 +65,6 @@ This endpoint returns a list of businesses which support certain transactions.
 | latitude       | String| Optional: Required when location isn't provided. Latitude of the location you want to deliver to.
 | longitude      | String| Optional: Required when location isn't provided. Longitude of the location you want to deliver to.
 
-<a name="getBusinessReviews"/>
 ## YelpAPI.getBusinessReviews
 This endpoint returns the up to three reviews of a business.
 
@@ -89,7 +74,6 @@ This endpoint returns the up to three reviews of a business.
 | bussinessId| String| Required: The business ID.
 | locale     | String| Optional: Specify the interface locale; this determines the language of reviews to return.
 
-<a name="getAutocomplete"/>
 ## YelpAPI.getAutocomplete
 This endpoint returns autocomplete suggestions for search keywords, businesses and categories, based on the input text.
 
