@@ -2,8 +2,8 @@
     "package": "YelpAPI",
     "tagline": "Yelp API Wrapper",
     "description": "Search local businesses geographically with Yelp database.",
-    "image": "http:\/\/logo.clearbit.com\/yelp.com",
-    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-YelpAPI-package",
+    "image": "http://logo.clearbit.com/yelp.com",
+    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-YelpAPI-package",
     "keywords": ["API", "geo", "geo-target", "geo-targeted", "geolocal", "local", "locate", "location", "places", "review", "reviews"],
     "accounts": {
         "domain": "yelp.com",

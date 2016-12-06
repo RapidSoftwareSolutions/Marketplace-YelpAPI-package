@@ -1,5 +1,5 @@
 # YelpAPI Package
-Yelp's Fusion API allows you to get the best local business information and user reviews of over million businesses in 32 countries.
+Search local businesses geographically with Yelp database.
 * Domain: yelp.com
 * Credentials: appId, appSecret
 
