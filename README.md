@@ -1,3 +1,5 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/YelpAPI/functions?utm_source=RapidAPIGitHub_YelpFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
 # YelpAPI Package
 Search local businesses geographically with Yelp database.
 * Domain: yelp.com
