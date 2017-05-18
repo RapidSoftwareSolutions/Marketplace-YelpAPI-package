@@ -8,8 +8,9 @@ Search local businesses geographically with Yelp database.
 ## How to get credentials: 
 0. Sign up or Log in to [Yelp](https://www.yelp.com) 
 1. Go to [Create App](https://www.yelp.com/developers/v3/manage_app)
-2. In the create new app form, enter information about your app accordingly, then agree to Yelp API Terms of Use and Display Requirements. Then click the Submit button.
-3. Now you can get the App ID and App Secret.
+2. In the create new app form, enter information about your app accordingly, and then agree to Yelp API Terms of Use and Display Requirements.
+3. Click the submit button and you should receive your Client ID and Client Secret.
+4. Use your Client ID and Client secret to call the [getAccessToken endpoint](https://rapidapi.com/package/YelpAPI/functions/getAccessToken)
 
 ## YelpAPI.getAccessToken
 Allows to get an access token.
