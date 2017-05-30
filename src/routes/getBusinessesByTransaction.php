@@ -32,11 +32,11 @@ $app->post('/api/YelpAPI/getBusinessesByTransaction', function ($request, $respo
     if(empty($post_data['args']['transactionType'])) {
         $error[] = 'transactionType';
     }
-    if(empty($post_data['args']['location']) && empty($post_data['args']['latitude']) && empty($post_data['args']['longitude'])) {
-        $error[] = 'please, provide location or provide latitude and longitude';
+    if (empty($post_data['args']['location']) && empty($post_data['args']['coordinate'])) {
+        $error[] = 'please, provide location or provide coordinate';
     }
-    if(!empty($post_data['args']['location']) && !empty($post_data['args']['latitude']) && !empty($post_data['args']['longitude'])) {
-        $error[] = 'please, provide either location or latitude and longitude';
+    if (!empty($post_data['args']['location']) && !empty($post_data['args']['coordinate'])) {
+        $error[] = 'please, provide either location or coordinate';
     }
     
     if(!empty($error)) {
@@ -54,11 +54,15 @@ $app->post('/api/YelpAPI/getBusinessesByTransaction', function ($request, $respo
     if(!empty($post_data['args']['location'])) {
         $body['location'] = $post_data['args']['location'];
     }
-    if(!empty($post_data['args']['latitude'])) {
+    if (!empty($post_data['args']['coordinate'])) {
+        $body['latitude'] = explode(',', $post_data['args']['coordinate'])[0];
+        $body['longitude'] = explode(',', $post_data['args']['coordinate'])[1];
+    } else {
         $body['latitude'] = $post_data['args']['latitude'];
-    }
-    if(!empty($post_data['args']['longitude'])) {
         $body['longitude'] = $post_data['args']['longitude'];
+    }
+    if (!empty($post_data['args']['location'])) {
+        $body['location'] = $post_data['args']['location'];
     }
     
     $client = $this->httpClient;

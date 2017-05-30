@@ -32,12 +32,7 @@ $app->post('/api/YelpAPI/getAutocomplete', function ($request, $response, $args)
     if(empty($post_data['args']['text'])) {
         $error[] = 'text';
     }
-    if(empty($post_data['args']['latitude'])) {
-        $error[] = 'latitude';
-    }
-    if(empty($post_data['args']['longitude'])) {
-        $error[] = 'longitude';
-    }
+
     
     if(!empty($error)) {
         $result['callback'] = 'error';
@@ -51,8 +46,13 @@ $app->post('/api/YelpAPI/getAutocomplete', function ($request, $response, $args)
     $query_str = $settings['api_url'] . '/autocomplete';
     
     $body['text'] = $post_data['args']['text'];
-    $body['latitude'] = $post_data['args']['latitude'];
-    $body['longitude'] = $post_data['args']['longitude'];
+    if (!empty($post_data['args']['coordinate'])) {
+        $body['latitude'] = explode(',', $post_data['args']['coordinate'])[0];
+        $body['longitude'] = explode(',', $post_data['args']['coordinate'])[1];
+    } else {
+        $body['latitude'] = $post_data['args']['latitude'];
+        $body['longitude'] = $post_data['args']['longitude'];
+    }
     if(!empty($post_data['args']['locale'])) {
         $body['locale'] = $post_data['args']['locale'];
     }
