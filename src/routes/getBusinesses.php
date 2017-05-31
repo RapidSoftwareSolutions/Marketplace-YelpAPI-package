@@ -29,10 +29,10 @@ $app->post('/api/YelpAPI/getBusinesses', function ($request, $response, $args) {
     if (empty($post_data['args']['accessToken'])) {
         $error[] = 'accessToken';
     }
-    if (empty($post_data['args']['location']) && empty($post_data['args']['coordinate'])) {
+    if (empty($post_data['args']['location']) && empty($post_data['args']['coordinate']) && empty($post_data['args']['longitude']) && empty($post_data['args']['latitude']) ) {
         $error[] = 'please, provide location or provide coordinate';
     }
-    if (!empty($post_data['args']['location']) && !empty($post_data['args']['coordinate'])) {
+    if (!empty($post_data['args']['location']) && (!empty($post_data['args']['coordinate']) || (!empty($post_data['args']['longitude']) && !empty($post_data['args']['latitude'])))) {
         $error[] = 'please, provide either location or coordinate';
     }
 
