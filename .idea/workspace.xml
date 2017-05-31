@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c37ecd3-8119-4302-ab9f-b33032c3c6b1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/getBusinesses.php" afterPath="$PROJECT_DIR$/src/routes/getBusinesses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/getBusinessesByTransaction.php" afterPath="$PROJECT_DIR$/src/routes/getBusinessesByTransaction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metadata/metadata.json" afterPath="$PROJECT_DIR$/src/metadata/metadata.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="metadata.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="metadata.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="123" column="42" lean-forward="true" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
+            <state relative-caret-position="334">
+              <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -32,8 +31,8 @@
       <file leaf-file-name="getBusinesses.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/getBusinesses.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="540">
+              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -49,12 +48,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="761">
-                <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+              <first_editor relative-caret-position="324">
+                <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -64,6 +63,15 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>latitude and longitude</find>
+      <find>latitude or longitude</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>coordinate</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -71,10 +79,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/routes/getAutocomplete.php" />
-        <option value="$PROJECT_DIR$/src/metadata/metadata.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/routes/getBusinesses.php" />
         <option value="$PROJECT_DIR$/src/routes/getBusinessesByTransaction.php" />
+        <option value="$PROJECT_DIR$/src/metadata/metadata.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -209,12 +217,12 @@
       <option name="presentableId" value="Default" />
       <updated>1496140939915</updated>
       <workItem from="1496140941261" duration="686000" />
-      <workItem from="1496224906087" duration="432000" />
+      <workItem from="1496224906087" duration="651000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1118000" />
+    <option name="totallyTimeSpent" value="1337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
@@ -300,25 +308,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="761">
-            <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/getBusinesses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="36" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/getBusinessesByTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -327,11 +316,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getBusinesses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/metadata/metadata.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="123" column="42" lean-forward="true" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
+        <state relative-caret-position="334">
+          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="324">
+            <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

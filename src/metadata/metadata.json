@@ -72,13 +72,13 @@
         {
           "name": "location",
           "type": "String",
-          "info": "Required if either latitude or longitude is not provided. Specifies the combination of \"address, neighborhood, city, state or zip, optional country\" to be used when searching for businesses.",
+          "info": "Required if either coordinate is not provided. Specifies the combination of \"address, neighborhood, city, state or zip, optional country\" to be used when searching for businesses.",
           "required": false
         },
         {
           "name": "coordinate",
           "type": "Map",
-          "info": "Required if location is not provided. Latitude and longitude of the location you want to search near by coma separated.",
+          "info": "Required if location is not provided. coordinate of the location you want to search near by coma separated.",
           "required": false
         },
 
@@ -230,13 +230,13 @@
         {
           "name": "location",
           "type": "String",
-          "info": "Required when latitude and longitude aren't provided. Address of the location you want to deliver to.",
+          "info": "Required when coordinate aren't provided. Address of the location you want to deliver to.",
           "required": false
         },
         {
           "name": "coordinate",
           "type": "Map",
-          "info": "Required if location is not provided. Latitude and longitude of the location you want to search near by coma separated.",
+          "info": "Required if location is not provided. coordinate of the location you want to search near by coma separated.",
           "required": false
         }
       ],
@@ -304,7 +304,7 @@
         {
           "name": "coordinate",
           "type": "Map",
-          "info": "Required if location is not provided. Latitude and longitude of the location you want to search near by coma separated.",
+          "info": "Required if location is not provided. coordinate of the location you want to search near by coma separated.",
           "required": false
         },
         {

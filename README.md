@@ -16,7 +16,7 @@ Search local businesses geographically with Yelp database.
  |Datatype|Description|Example
  |--------|-----------|----------
  |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
- |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |Map|String which includes coordinate coma separated|```50.37, 26.56```
  |List|Simple array|```["123", "sample"]``` 
  |Select|String with predefined values|```sample```
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
@@ -37,8 +37,8 @@ This endpoint returns up to 1000 businesses based on the provided search criteri
 |------------|-------|----------
 | accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
 | term       | String| Optional: Search term (e.g. "food", "restaurants"). If term isn’t included we search everything. The term keyword also accepts business names such as "Starbucks".
-| location   | String| Optional: Required if either latitude or longitude is not provided. Specifies the combination of "address, neighborhood, city, state or zip, optional country" to be used when searching for businesses.
-| coordinate | Map   | Optional: Required if location is not provided. Latitude and longitude of the location you want to search near by coma separated.
+| location   | String| Optional: Required if either coordinate is not provided. Specifies the combination of "address, neighborhood, city, state or zip, optional country" to be used when searching for businesses.
+| coordinate | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
 | radius     | String| Optional: Search radius in meters. If the value is too large, a AREA_TOO_LARGE error may be returned. The max value is 40000 meters (25 miles).
 | categories | String| Optional: Categories to filter the search results with. See the list of supported categories. The category filter can be a list of comma delimited categories. For example, "bars,french" will filter by Bars and French. The category identifier should be used (for example "discgolf", not "Disc Golf").
 | locale     | String| Optional: Specify the locale to return the business information in.
@@ -73,8 +73,8 @@ This endpoint returns a list of businesses which support certain transactions.
 |----------------|-------|----------
 | accessToken    | String| Required: Access Token obtained from getAccessToken endpoint.
 | transactionType| String| Required: Valid values for transaction_type are: delivery.
-| location       | String| Optional: Required when latitude and longitude aren't provided. Address of the location you want to deliver to.
-| coordinate     | Map   | Optional: Required if location is not provided. Latitude and longitude of the location you want to search near by coma separated.
+| location       | String| Optional: Required when coordinate aren't provided. Address of the location you want to deliver to.
+| coordinate     | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
 
 ## YelpAPI.getBusinessReviews
 This endpoint returns the up to three reviews of a business.
@@ -92,6 +92,6 @@ This endpoint returns autocomplete suggestions for search keywords, businesses a
 |------------|-------|----------
 | accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
 | text       | String| Required: Text to return autocomplete suggestions for.
-| coordinate     | Map   | Optional: Required if location is not provided. Latitude and longitude of the location you want to search near by coma separated.
+| coordinate     | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
 | locale     | String| Optional: Specify the locale to return the autocomplete suggestions in.
 
