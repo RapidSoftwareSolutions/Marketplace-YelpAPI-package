@@ -24,6 +24,12 @@
       "appSecret"
     ]
   },
+  "steps": [
+    "Sign up or Log in to Yelp(https://www.yelp.com/)",
+    "Go to Create App(https://www.yelp.com/developers/v3/manage_app)",
+    "Click the submit button and receive your Client ID and Client Secret",
+    "Use your Client ID and Client secret to call the getAccessToken(https://rapidapi.com/package/YelpAPI/functions/getAccessToken) endpoint"
+  ],
   "blocks": [
     {
       "name": "getAccessToken",
