@@ -95,7 +95,7 @@ This endpoint returns autocomplete suggestions for search keywords, businesses a
 | accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
 | text       | String| Required: Text to return autocomplete suggestions for.
 | coordinate     | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
-| locale     | String| Optional: Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
+| locale     | String| Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 
 
 ## YelpAPI.getSingleEvent
@@ -105,7 +105,7 @@ This endpoint returns the detailed information of a Yelp event.
 |------------|-------|----------
 | accessToken| String| Access Token obtained from getAccessToken endpoint.
 | eventId    | String| The event ID.
-| locale     | String| Specify the locale to return the autocomplete suggestions in.
+| locale     | String| Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 
 ## YelpAPI.searchEvent
 This endpoint returns events based on the provided search criteria.
