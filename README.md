@@ -113,7 +113,7 @@ This endpoint returns events based on the provided search criteria.
 | Field         | Type      | Description
 |---------------|-----------|----------
 | accessToken   | String    | Access Token obtained from getAccessToken endpoint.
-| locale        | String    | Specify the locale to return the autocomplete suggestions in.
+| locale        | String    | Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 | offset        | Number    | Offset the list of returned business results by this amount.
 | limit         | Number    | Number of business results to return. By default, it will return 20. Maximum is 50.
 | sortBy        | Select    | Sort by either descending or ascending order. By default, it returns results in descending order. Possible values are: desc, asc
@@ -133,7 +133,7 @@ This endpoint returns the featured event for a given location. Featured events a
 | Field      | Type  | Description
 |------------|-------|----------
 | accessToken| String| Access Token obtained from getAccessToken endpoint.
-| locale     | String| Specify the locale to return the autocomplete suggestions in.
+| locale     | String| Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 | location   | String| Specifies the combination of `address, neighborhood, city, state or zip, optional country` to be used when searching for events.
 | coordinates| Map   | The location you want to search nearby. 
 
