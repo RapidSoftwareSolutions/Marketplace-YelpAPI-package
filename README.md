@@ -120,7 +120,7 @@ This endpoint returns events based on the provided search criteria.
 | sortOn        | Select    | Sort on popularity or time start. By default, sorts on popularity. Possible values are: popularity, time_start
 | startDate     | DatePicker| Will return events that only begin at or after the specified time.
 | endDate       | DatePicker| Will return events that only end at or before the specified time.
-| categories    | List      | The category filter can be a list of comma delimited categories to get OR'd results that include the categories provided. 
+| categories    | List      | The category filter can be a list of comma delimited categories to get OR'd results that include the categories provided.  Must be: music,visual-arts,performing-arts,film,lectures-books,fashion,food-and-drink,festivals-fairs,charities,sports-active-life,nightlife,kids-family,other
 | isFree        | Select    | Filter whether the events are free to attend. By default no filter is applied so both free and paid events will be returned.
 | location      | String    | Specifies the combination of `address, neighborhood, city, state or zip, optional country` to be used when searching for events.
 | coordinates   | Map       | The location you want to search nearby. 
