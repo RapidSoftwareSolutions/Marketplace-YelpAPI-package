@@ -91,12 +91,12 @@ $app->post('/api/YelpAPI/getBusinesses', function ($request, $response, $args) {
             $body['open_at'] = $post_data['args']['openAt'];
         } else {
             $dateTime = new DateTime($post_data['args']['openAt']);
-            $body['open_at'] = $dateTime->format('u');
+            $body['open_at'] = $dateTime->format('U');
         }
 
     }
     if (!empty($post_data['args']['attributes'])) {
-        $body['attributes'] = $post_data['args']['attributes'];
+        $body['attributes'] = implode(",", $post_data['args']['attributes']);
     }
 
     $client = $this->httpClient;

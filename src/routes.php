@@ -7,6 +7,10 @@ $routes = [
     'getBusinessesByTransaction',
     'getBusinessReviews',
     'getAutocomplete',
+    'getSingleEvent',
+    'searchEvent',
+    'getFeaturedEvent',
+    'matchedBusinesses',
     'metadata'
 ];
 foreach($routes as $file) {

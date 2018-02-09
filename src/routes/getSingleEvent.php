@@ -1,38 +1,38 @@
 <?php
 
-$app->post('/api/YelpAPI/getSingleBusiness', function ($request, $response, $args) {
+$app->post('/api/YelpAPI/getSingleEvent', function ($request, $response, $args) {
     $settings =  $this->settings;
-    
+
     $data = $request->getBody();
 
     if($data=='') {
         $post_data = $request->getParsedBody();
     } else {
         $toJson = $this->toJson;
-        $data = $toJson->normalizeJson($data); 
+        $data = $toJson->normalizeJson($data);
         $data = str_replace('\"', '"', $data);
         $post_data = json_decode($data, true);
     }
-    
+
     if(json_last_error() != 0) {
         $error[] = json_last_error_msg() . '. Incorrect input JSON. Please, check fields with JSON input.';
     }
-    
+
     if(!empty($error)) {
         $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = 'JSON_VALIDATION';
         $result['contextWrites']['to']['status_msg'] = implode(',', $error);
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     }
-    
+
     $error = [];
     if(empty($post_data['args']['accessToken'])) {
         $error[] = 'accessToken';
     }
-    if(empty($post_data['args']['bussinessId'])) {
-        $error[] = 'bussinessId';
+    if(empty($post_data['args']['eventId'])) {
+        $error[] = 'eventId';
     }
-    
+
     if(!empty($error)) {
         $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = "REQUIRED_FIELDS";
@@ -40,9 +40,9 @@ $app->post('/api/YelpAPI/getSingleBusiness', function ($request, $response, $arg
         $result['contextWrites']['to']['fields'] = $error;
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
     }
-    
+
     $headers['Authorization'] = "Bearer " . $post_data['args']['accessToken'];
-    $query_str = $settings['api_url'] . '/businesses/'.$post_data['args']['bussinessId'];
+    $query_str = $settings['api_url'] . '/events/'.$post_data['args']['eventId'];
 
     $body= [];
     if(!empty($post_data['args']['locale'])) {
@@ -53,13 +53,13 @@ $app->post('/api/YelpAPI/getSingleBusiness', function ($request, $response, $arg
 
     try {
 
-        $resp = $client->get( $query_str, 
+        $resp = $client->get( $query_str,
             [
                 'headers' => $headers,
                 'query' => $body
             ]);
         $responseBody = $resp->getBody()->getContents();
-  
+
         if($resp->getStatusCode() == '200') {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
@@ -101,6 +101,6 @@ $app->post('/api/YelpAPI/getSingleBusiness', function ($request, $response, $arg
         $result['contextWrites']['to']['status_msg'] = 'Something went wrong inside the package.';
 
     }
-    
+
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });

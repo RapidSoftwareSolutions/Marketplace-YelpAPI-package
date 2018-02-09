@@ -30,45 +30,41 @@
     "Click the submit button and receive your Client ID and Client Secret",
     "Use your Client ID and Client secret to call the getAccessToken(https://rapidapi.com/package/YelpAPI/functions/getAccessToken) endpoint"
   ],
-  "blocks": [
-    {
-      "name": "getAccessToken",
-      "description": "Allows to get an access token.",
-      "args": [
-        {
-          "name": "appId",
-          "type": "credentials",
-          "info": "Your App ID obtained from Yelp.",
-          "required": true
-        },
-        {
-          "name": "appSecret",
-          "type": "credentials",
-          "info": "Your App Secret obtained from Yelp.",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
+  "blocks": [{
+    "name": "getAccessToken",
+    "description": "Allows to get an access token.",
+    "args": [{
+      "name": "appId",
+      "type": "credentials",
+      "info": "Your App ID obtained from Yelp.",
+      "required": true
     },
+      {
+        "name": "appSecret",
+        "type": "credentials",
+        "info": "Your App Secret obtained from Yelp.",
+        "required": true
+      }
+    ],
+    "callbacks": [{
+      "name": "error",
+      "info": "Error"
+    },
+      {
+        "name": "success",
+        "info": "Success"
+      }
+    ]
+  },
     {
       "name": "getBusinesses",
       "description": "This endpoint returns up to 1000 businesses based on the provided search criteria. It has some basic information about the business.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "String",
-          "info": "Access Token obtained from getAccessToken endpoint.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
         {
           "name": "term",
           "type": "String",
@@ -90,7 +86,7 @@
 
         {
           "name": "radius",
-          "type": "String",
+          "type": "Number",
           "info": "Search radius in meters. If the value is too large, a AREA_TOO_LARGE error may be returned. The max value is 40000 meters (25 miles).",
           "required": false
         },
@@ -108,13 +104,13 @@
         },
         {
           "name": "limit",
-          "type": "String",
+          "type": "Number",
           "info": "Number of business results to return. By default, it will return 20. Maximum is 50.",
           "required": false
         },
         {
           "name": "offset",
-          "type": "String",
+          "type": "Number",
           "info": "Offset the list of returned business results by this amount.",
           "required": false
         },
@@ -133,28 +129,36 @@
         },
         {
           "name": "openNow",
-          "type": "String",
+          "type": "Select",
+          "options": ["true", "false"],
           "info": "Default to false. When set to true, only return the businesses open now. Notice that open_at and open_now cannot be used together.",
           "required": false
         },
         {
           "name": "openAt",
-          "type": "Datepicker",
+          "type": "DatePicker",
           "info": "An integer represending the Unix time in the same timezone of the search location. If specified, it will return business open at the given time. Notice that open_at and open_now cannot be used together.",
           "required": false
         },
         {
           "name": "attributes",
-          "type": "String",
-          "info": "Additional filters to search businesses. You can use multiple attribute filters at the same time by providing a comma separated string, like this \"attribute1,attribute2\". Currently, the valid values are hot_and_new and deals.",
-          "required": false
+          "type": "List",
+          "info": "Additional filters to restrict search results. Possible values are: hot_and_new, request_a_quote, waitlist_reservation, cashback, deals, gender_neutral_restrooms",
+          "required": false,
+          "structure": {
+            "name": "attribute",
+            "type": "Select",
+            "options": ["hot_and_new", "request_a_quote", "waitlist_reservation", "cashback", "deals", "gender_neutral_restrooms"],
+            "info": "Filter to restrict search results.",
+            "required": false
+          }
+
         }
       ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
           "name": "success",
           "info": "Success"
@@ -164,25 +168,29 @@
     {
       "name": "getSingleBusiness",
       "description": "This endpoint returns the detail information of a business.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "String",
-          "info": "Access Token obtained from getAccessToken endpoint.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
         {
           "name": "bussinessId",
           "type": "String",
           "info": "The business ID.",
           "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "Specify the locale to return the autocomplete suggestions in.",
+          "required": false
         }
       ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
           "name": "success",
           "info": "Success"
@@ -192,13 +200,12 @@
     {
       "name": "getBusinessesByPhoneNumber",
       "description": "This endpoint returns a list of businesses based on the provided phone number. It is possible for more than one businesses having the same phone number (for example, chain stores with the same +1 800 phone number).",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "String",
-          "info": "Access Token obtained from getAccessToken endpoint.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
         {
           "name": "phone",
           "type": "String",
@@ -206,11 +213,10 @@
           "required": true
         }
       ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
           "name": "success",
           "info": "Success"
@@ -220,13 +226,12 @@
     {
       "name": "getBusinessesByTransaction",
       "description": "This endpoint returns a list of businesses which support certain transactions.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "String",
-          "info": "Access Token obtained from getAccessToken endpoint.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
         {
           "name": "transactionType",
           "type": "String",
@@ -246,11 +251,10 @@
           "required": false
         }
       ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
           "name": "success",
           "info": "Success"
@@ -260,13 +264,12 @@
     {
       "name": "getBusinessReviews",
       "description": "This endpoint returns the up to three reviews of a business.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "String",
-          "info": "Access Token obtained from getAccessToken endpoint.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
         {
           "name": "bussinessId",
           "type": "String",
@@ -280,11 +283,10 @@
           "required": false
         }
       ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
           "name": "success",
           "info": "Success"
@@ -294,13 +296,12 @@
     {
       "name": "getAutocomplete",
       "description": "This endpoint returns autocomplete suggestions for search keywords, businesses and categories, based on the input text.",
-      "args": [
-        {
-          "name": "accessToken",
-          "type": "String",
-          "info": "Access Token obtained from getAccessToken endpoint.",
-          "required": true
-        },
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
         {
           "name": "text",
           "type": "String",
@@ -320,11 +321,286 @@
           "required": false
         }
       ],
-      "callbacks": [
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
-          "name": "error",
-          "info": "Error"
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEvent",
+      "description": "This endpoint returns the detailed information of a Yelp event.",
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
+        {
+          "name": "eventId",
+          "type": "String",
+          "info": "The event ID.",
+          "required": true
         },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "Specify the locale to return the autocomplete suggestions in.",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchEvent",
+      "description": "This endpoint returns events based on the provided search criteria.",
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "Specify the locale to return the autocomplete suggestions in.",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "Number",
+          "info": "Offset the list of returned business results by this amount.",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "Number",
+          "info": "Number of business results to return. By default, it will return 20. Maximum is 50.",
+          "required": false
+        },
+        {
+          "name": "sortBy",
+          "type": "Select",
+          "options": ["desc", "asc"],
+          "info": "Sort by either descending or ascending order. By default, it returns results in descending order. Possible values are: desc, asc",
+          "required": false
+        },
+        {
+          "name": "sortOn",
+          "type": "Select",
+          "options": ["popularity", "time_start"],
+          "info": "Sort on popularity or time start. By default, sorts on popularity. Possible values are: popularity, time_start",
+          "required": false
+        },
+        {
+          "name": "startDate",
+          "type": "DatePicker",
+          "info": "Will return events that only begin at or after the specified time.",
+          "required": false
+        },
+        {
+          "name": "endDate",
+          "type": "DatePicker",
+          "info": "Will return events that only end at or before the specified time.",
+          "required": false
+        },
+        {
+          "name": "categories",
+          "type": "List",
+          "info": "The category filter can be a list of comma delimited categories to get OR'd results that include the categories provided. ",
+          "required": false,
+          "structure": {
+            "name": "categoryId",
+            "type": "Number",
+            "info": "Single category id",
+            "required": false
+          }
+        },
+        {
+          "name": "isFree",
+          "type": "Select",
+          "options": ["true", "false"],
+          "info": "Filter whether the events are free to attend. By default no filter is applied so both free and paid events will be returned.",
+          "required": false
+        },
+        {
+          "name": "location",
+          "type": "String",
+          "info": "Specifies the combination of `address, neighborhood, city, state or zip, optional country` to be used when searching for events.",
+          "required": false
+        },
+        {
+          "name": "coordinates",
+          "type": "Map",
+          "info": "The location you want to search nearby. ",
+          "required": false
+        },
+        {
+          "name": "radius",
+          "type": "Number",
+          "info": "Search radius in meters.",
+          "required": false
+        },
+        {
+          "name": "excludedEvents",
+          "type": "List",
+          "info": "List of event ids. Events associated with these event ids in this list will not show up in the response.",
+          "required": false,
+          "structure": {
+            "name": "event",
+            "type": "String",
+            "info": "Event id",
+            "required": false
+          }
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getFeaturedEvent",
+      "description": "This endpoint returns the featured event for a given location. Featured events are chosen by Yelp's community managers.",
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "Specify the locale to return the autocomplete suggestions in.",
+          "required": false
+        },
+        {
+          "name": "location",
+          "type": "String",
+          "info": "Specifies the combination of `address, neighborhood, city, state or zip, optional country` to be used when searching for events.",
+          "required": false
+        },
+        {
+          "name": "coordinates",
+          "type": "Map",
+          "info": "The location you want to search nearby. ",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "matchedBusinesses",
+      "description": "These endpoints let you match business data from other sources against businesses on Yelp, based on minimal provided information.",
+      "args": [{
+        "name": "accessToken",
+        "type": "String",
+        "info": "Access Token obtained from getAccessToken endpoint.",
+        "required": true
+      },
+        {
+          "name": "type",
+          "type": "Select",
+          "options": ["best", "lookup"],
+          "info": "Must be best or lookup",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "The name of the business. Maximum length is 64; only digits, letters, spaces, and !#$%&+,­./:?@'are allowed.",
+          "required": false
+        },
+        {
+          "name": "address1",
+          "type": "String",
+          "info": "The first line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed.",
+          "required": false
+        },
+        {
+          "name": "address2",
+          "type": "String",
+          "info": "The second line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed.",
+          "required": false
+        },
+        {
+          "name": "address3",
+          "type": "String",
+          "info": "The third line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed.",
+          "required": false
+        },
+        {
+          "name": "city",
+          "type": "String",
+          "info": "The city of the business. Maximum length is 64; only digits, letters, spaces, and ­’.() are allowed.",
+          "required": true
+        },
+        {
+          "name": "state",
+          "type": "String",
+          "info": "The ISO 3166-2 (with a few exceptions) state code of this business. Maximum length is 3.",
+          "required": true
+        },
+        {
+          "name": "country",
+          "type": "String",
+          "info": "The ISO 3166-1 alpha-2 country code of this business. Maximum length is 2.",
+          "required": true
+        },
+        {
+          "name": "coordinates",
+          "type": "Map",
+          "info": "The location you want to search nearby. ",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "info": "The phone number of the business which can be submitted as (a) locally ­formatted with digits only (e.g., 016703080) or (b) internationally­ formatted with a leading + sign and digits only after (+35316703080). Maximum length is 32.",
+          "required": false
+        },
+        {
+          "name": "postalCode",
+          "type": "String",
+          "info": "The postal code of the business. Maximum length is 12.",
+          "required": false
+        },
+        {
+          "name": "yelpBusinessId",
+          "type": "String",
+          "info": "Unique Yelp identifier of the business if available. Used as a hint when finding a matching business.",
+          "required": false
+        }
+      ],
+      "callbacks": [{
+        "name": "error",
+        "info": "Error"
+      },
         {
           "name": "success",
           "info": "Success"
