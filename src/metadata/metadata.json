@@ -534,7 +534,7 @@
           "name": "name",
           "type": "String",
           "info": "The name of the business. Maximum length is 64; only digits, letters, spaces, and !#$%&+,­./:?@'are allowed.",
-          "required": false
+          "required": true
         },
         {
           "name": "address1",
