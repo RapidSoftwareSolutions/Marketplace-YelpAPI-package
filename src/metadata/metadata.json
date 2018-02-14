@@ -416,7 +416,18 @@
           "info": "Will return events that only end at or before the specified time.",
           "required": false
         },
-
+        {
+          "name": "categories",
+          "type": "List",
+          "info": "The category filter can be a list of comma delimited categories to get OR'd results that include the categories provided. ",
+          "required": false,
+          "structure": {
+            "name": "categoryId",
+            "type": "String",
+            "info": "Single category id",
+            "required": false
+          }
+        },
         {
           "name": "isFree",
           "type": "Select",
