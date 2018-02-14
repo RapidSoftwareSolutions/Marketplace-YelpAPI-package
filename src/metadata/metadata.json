@@ -423,8 +423,7 @@
           "required": false,
           "structure": {
             "name": "categoryId",
-            "type": "Select",
-            "options": ["music","visual-arts","performing-arts","film","lectures-books","fashion","food-and-drink","festivals-fairs","charities","sports-active-life","nightlife","kids-family","other"],
+            "type": "String",
             "info": "Single category id",
             "required": false
           }
