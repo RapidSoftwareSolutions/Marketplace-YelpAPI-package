@@ -9,7 +9,7 @@ Search local businesses geographically with Yelp database.
 0. Sign up or Log in to [Yelp](https://www.yelp.com) 
 1. Go to [Create App](https://www.yelp.com/developers/v3/manage_app)
 2. In the create new app form, enter information about your app accordingly, and then agree to Yelp API Terms of Use and Display Requirements.
-3. Your private API Key will be automatically generated after you create your app. For more details, refer to authentication [guide](https://www.yelp.com/developers/documentation/v3/authentication).",
+3. Your private API Key will be automatically generated after you create your app. For more details, refer to authentication [guide](https://www.yelp.com/developers/documentation/v3/authentication).,
 4. Use your apiKey as accessToken.
 
 ## Custom datatypes: 
