@@ -27,42 +27,17 @@
   "steps": [
     "Sign up or Log in to Yelp(https://www.yelp.com/)",
     "Go to Create App(https://www.yelp.com/developers/v3/manage_app)",
-    "Click the submit button and receive your Client ID and Client Secret",
-    "Use your Client ID and Client secret to call the getAccessToken(https://rapidapi.com/package/YelpAPI/functions/getAccessToken) endpoint"
+    "Your private API Key will be automatically generated after you create your app.",
+    "Use your apiKey as accessToken."
   ],
-  "blocks": [{
-    "name": "getAccessToken",
-    "description": "Allows to get an access token.",
-    "args": [{
-      "name": "appId",
-      "type": "credentials",
-      "info": "Your App ID obtained from Yelp.",
-      "required": true
-    },
-      {
-        "name": "appSecret",
-        "type": "credentials",
-        "info": "Your App Secret obtained from Yelp.",
-        "required": true
-      }
-    ],
-    "callbacks": [{
-      "name": "error",
-      "info": "Error"
-    },
-      {
-        "name": "success",
-        "info": "Success"
-      }
-    ]
-  },
+  "blocks": [
     {
       "name": "getBusinesses",
       "description": "This endpoint returns up to 1000 businesses based on the provided search criteria. It has some basic information about the business.",
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -171,7 +146,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -203,7 +178,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -229,7 +204,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -267,7 +242,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -299,7 +274,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -337,7 +312,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -369,7 +344,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -482,7 +457,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {
@@ -520,7 +495,7 @@
       "args": [{
         "name": "accessToken",
         "type": "String",
-        "info": "Access Token obtained from getAccessToken endpoint.",
+        "info": "Your private API key.",
         "required": true
       },
         {

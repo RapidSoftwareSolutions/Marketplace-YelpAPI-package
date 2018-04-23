@@ -9,8 +9,8 @@ Search local businesses geographically with Yelp database.
 0. Sign up or Log in to [Yelp](https://www.yelp.com) 
 1. Go to [Create App](https://www.yelp.com/developers/v3/manage_app)
 2. In the create new app form, enter information about your app accordingly, and then agree to Yelp API Terms of Use and Display Requirements.
-3. Click the submit button and you should receive your Client ID and Client Secret.
-4. Use your Client ID and Client secret to call the [getAccessToken endpoint](https://rapidapi.com/package/YelpAPI/functions/getAccessToken)
+3. Your private API Key will be automatically generated after you create your app. For more details, refer to authentication [guide](https://www.yelp.com/developers/documentation/v3/authentication).",
+4. Use your apiKey as accessToken.
 
 ## Custom datatypes: 
  |Datatype|Description|Example
@@ -22,20 +22,12 @@ Search local businesses geographically with Yelp database.
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
 
-## YelpAPI.getAccessToken
-Allows to get an access token.
-
-| Field    | Type       | Description
-|----------|------------|----------
-| appId    | credentials| Required: Your App ID obtained from Yelp.
-| appSecret| credentials| Required: Your App Secret obtained from Yelp.
-
 ## YelpAPI.getBusinesses
 This endpoint returns up to 1000 businesses based on the provided search criteria. It has some basic information about the business.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Required: Your private API key.
 | term       | String| Optional: Search term (e.g. "food", "restaurants"). If term isn’t included we search everything. The term keyword also accepts business names such as "Starbucks".
 | location   | String| Optional: Required if either coordinate is not provided. Specifies the combination of "address, neighborhood, city, state or zip, optional country" to be used when searching for businesses.
 | coordinate | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
@@ -55,7 +47,7 @@ This endpoint returns the detail information of a business.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Required: Your private API key.
 | bussinessId| String| Required: The business ID.
 | locale     | String| Optional: Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 
@@ -65,7 +57,7 @@ This endpoint returns a list of businesses based on the provided phone number. I
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Required: Your private API key.
 | phone      | String| Required: Phone number of the business you want to search for. It must start with + and include the country code, like +14159083801.
 
 ## YelpAPI.getBusinessesByTransaction
@@ -73,7 +65,7 @@ This endpoint returns a list of businesses which support certain transactions.
 
 | Field          | Type  | Description
 |----------------|-------|----------
-| accessToken    | String| Required: Access Token obtained from getAccessToken endpoint.
+| accessToken    | String| Required: Your private API key.
 | transactionType| String| Required: Valid values for transaction_type are: delivery.
 | location       | String| Optional: Required when coordinate aren't provided. Address of the location you want to deliver to.
 | coordinate     | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
@@ -83,7 +75,7 @@ This endpoint returns the up to three reviews of a business.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Required: Your private API key.
 | bussinessId| String| Required: The business ID.
 | locale     | String| Optional: Specify the interface locale; this determines the language of reviews to return. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 
@@ -92,7 +84,7 @@ This endpoint returns autocomplete suggestions for search keywords, businesses a
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Required: Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Required: Your private API key.
 | text       | String| Required: Text to return autocomplete suggestions for.
 | coordinate     | Map   | Optional: Required if location is not provided. coordinate of the location you want to search near by coma separated.
 | locale     | String| Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
@@ -103,7 +95,7 @@ This endpoint returns the detailed information of a Yelp event.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Your private API key.
 | eventId    | String| The event ID.
 | locale     | String| Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 
@@ -112,7 +104,7 @@ This endpoint returns events based on the provided search criteria.
 
 | Field         | Type      | Description
 |---------------|-----------|----------
-| accessToken   | String    | Access Token obtained from getAccessToken endpoint.
+| accessToken   | String    | Your private API key.
 | locale        | String    | Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 | offset        | Number    | Offset the list of returned business results by this amount.
 | limit         | Number    | Number of business results to return. By default, it will return 20. Maximum is 50.
@@ -132,7 +124,7 @@ This endpoint returns the featured event for a given location. Featured events a
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| Access Token obtained from getAccessToken endpoint.
+| accessToken| String| Your private API key.
 | locale     | String| Specify the locale to return the autocomplete suggestions in. See the list of [supported locales](https://www.yelp.com/developers/documentation/v3/supported_locales).
 | location   | String| Specifies the combination of `address, neighborhood, city, state or zip, optional country` to be used when searching for events.
 | coordinates| Map   | The location you want to search nearby. 
@@ -142,7 +134,7 @@ These endpoints let you match business data from other sources against businesse
 
 | Field         | Type  | Description
 |---------------|-------|----------
-| accessToken   | String| Access Token obtained from getAccessToken endpoint.
+| accessToken   | String| Your private API key.
 | type          | Select| Must be best or lookup
 | name          | String| The name of the business. Maximum length is 64; only digits, letters, spaces, and !#$%&+,­./:?@'are allowed.
 | address1      | String| The first line of the business’s address. Maximum length is 64; only digits, letters, spaces, and ­’/#&,.: are allowed.
